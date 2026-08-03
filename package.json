@@ -1,0 +1,18 @@
+{
+  "name": "vedetta-x402-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal x402 example client for Vedetta - pay-per-call market intelligence for AI agents (USDC on Base).",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "viem": "^2.21.0",
+    "x402-fetch": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
