@@ -10,7 +10,7 @@ No signup. No API keys. Your agent pays per request in USDC on Base. Payment set
 
 1. Your client requests an endpoint (e.g. `GET /v1/snapshot`).
 2. The server replies `402 Payment Required` with a machine-readable offer (price, network, receiving address).
-3. An x402 client SDK (e.g. `x402-fetch`) signs a USDC (Base) payment with your wallet and retries automatically.
+3. An x402 v2 client SDK (e.g. `@x402/fetch`) signs a USDC (Base) payment with your wallet and retries automatically.
 4. You get the full JSON payload back.
 
 ## Example client (this repo)

@@ -1,12 +1,11 @@
-// Vedetta x402 example client
+// Vedetta x402 example client (x402 v2)
 // 1) Fetches the free discovery manifest, 2) makes one paid call (/v1/feed, $0.005 USDC on Base).
 // Descriptive research, not financial advice.
 
 import { readFileSync } from "node:fs";
-import { createWalletClient, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { base } from "viem/chains";
-import { wrapFetchWithPayment } from "x402-fetch";
+import { wrapFetchWithPaymentFromConfig } from "@x402/fetch";
+import { ExactEvmScheme } from "@x402/evm";
 
 const BASE_URL = "https://vedetta.dethboy.com";
 
@@ -21,8 +20,9 @@ try {
 if (!pk.startsWith("0x")) pk = "0x" + pk;
 
 const account = privateKeyToAccount(pk);
-const wallet = createWalletClient({ account, chain: base, transport: http() });
-const fetchWithPay = wrapFetchWithPayment(fetch, wallet);
+const fetchWithPay = wrapFetchWithPaymentFromConfig(fetch, {
+  schemes: [{ network: "eip155:8453", client: new ExactEvmScheme(account) }],
+});
 
 console.log("Paying wallet:", account.address);
 
