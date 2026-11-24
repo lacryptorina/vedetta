@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Minimal x402 v2 example client for Vedetta - pay-per-call market intelligence for AI agents (USDC on Base).",
+  "description": "Pay-per-call market sentiment divergence intelligence. 23 tools. Free track-record.",
   "scripts": {
     "start": "node index.mjs"
   },
